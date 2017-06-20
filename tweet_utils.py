@@ -24,24 +24,30 @@ tweet_mapping = {'properties':
                     {'timestamp_ms': {
                                   'type': 'date'
                                   },
-                             "text": {
-                                  "type": "text",
-                                  "fields": {
-                                    "all": { 
-                                      "type":  "keyword"
-                                    },
-                             "wordcloud": {
-                                  "type": "text",
-                                  "fields": {
-                                    "all": { 
-                                      "type":  "keyword"
-                                    },
-                                    "raw": { 
-                                      "type":  "text",
-                                      "fielddata": True
-                                    }
-                                  }
-                                },
+                     "text": {
+                          "type": "text",
+                          "fields": {
+                            "all": { 
+                              "type":  "keyword"
+                            },
+                            "raw": { 
+                              "type":  "text",
+                              "fielddata": True
+                            }
+                          }
+                        },
+                     "wordcloud": {
+                          "type": "text",
+                          "fields": {
+                            "all": { 
+                              "type":  "keyword"
+                            },
+                            "raw": { 
+                              "type":  "text",
+                              "fielddata": True
+                            }
+                          }
+                        },
                      'source': {
                                   'type': 'text',
                                   "fields": {
