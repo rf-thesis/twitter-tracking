@@ -30,6 +30,12 @@ tweet_mapping = {'properties':
                                     "all": { 
                                       "type":  "keyword"
                                     },
+                             "wordcloud": {
+                                  "type": "text",
+                                  "fields": {
+                                    "all": { 
+                                      "type":  "keyword"
+                                    },
                                     "raw": { 
                                       "type":  "text",
                                       "fielddata": True
