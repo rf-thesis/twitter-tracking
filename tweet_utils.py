@@ -150,9 +150,12 @@ def get_tweet(doc):
     tweet['date'] = time.strftime('%Y-%m-%dT%H:%M:%S+00:00', time.strptime(doc['created_at'],'%a %b %d %H:%M:%S +0000 %Y'))
     tweet['text'] = doc['text']
     wcl = doc['text'].lower()
-    for c in config.cleaner:
-        wcl = wcl.replace(c, "")
-    tweet["wordcloud"] = wcl
+
+    querywords = wcl.split()
+
+    resultwords  = [word for word in querywords if word.lower() not in config.cleaner]
+    tweet["wordcloud"] = ' '.join(resultwords)
+
     # tweet['language'] = doc['lang']
     tweet['source'] = doc.get('source', "").partition('>')[-1].rpartition('<')[0]
     tweet['user'] = {'id': doc['user']['id'], 'name': doc['user']['name'],
