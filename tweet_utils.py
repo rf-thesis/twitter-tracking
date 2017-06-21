@@ -152,6 +152,7 @@ def get_tweet(doc):
     wcl = doc['text'].lower()
     for c in config.cleaner:
         wcl = wcl.replace(c, "")
+    tweet["wordcloud"] = wcl
     # tweet['language'] = doc['lang']
     tweet['source'] = doc.get('source', "").partition('>')[-1].rpartition('<')[0]
     tweet['user'] = {'id': doc['user']['id'], 'name': doc['user']['name'],
