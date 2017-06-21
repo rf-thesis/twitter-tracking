@@ -153,8 +153,12 @@ def get_tweet(doc):
 
     querywords = wcl.split()
 
-    resultwords  = [word for word in querywords if word.lower() not in config.cleaner]
-    tweet["wordcloud"] = ' '.join(resultwords)
+    resultwords  = [word for word in querywords if word.lower() not in config.stops]
+    wcl = ' '.join(resultwords)
+
+    for c in config.cleaner:
+        wcl = wcl.replace(c, "")
+
 
     # tweet['language'] = doc['lang']
     tweet['source'] = doc.get('source', "").partition('>')[-1].rpartition('<')[0]
