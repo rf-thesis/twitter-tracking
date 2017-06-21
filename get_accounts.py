@@ -33,6 +33,7 @@ class MyListener(StreamListener):
         try:
             # if json.loads(data)["lang"] == "en":
             # send_to_es(data)
+            print(data)
             threading.Thread(target=send_to_es, name="ES-LOADER",
                              args=(data,)).start()
             return True
@@ -45,4 +46,4 @@ class MyListener(StreamListener):
         return True
 
 twitter_stream = Stream(auth, MyListener())
-twitter_stream.filter(follow=config.accounts)
+twitter_stream.filter(follow=[str(a) for a in config.accounts])
