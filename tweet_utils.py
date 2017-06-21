@@ -6,6 +6,7 @@ forked from mentzera --> from AWS/Twitter/ES tutorial
 import re
 import time
 from textblob import TextBlob
+import config
 
 class Sentiments:
     POSITIVE = 'Positive'
@@ -108,7 +109,6 @@ tweet_mapping = {'properties':
 
 
 
-
 def _sentiment_analysis(tweet):
     tweet['emoticons'] = []
     tweet['sentiments'] = []
@@ -149,7 +149,9 @@ def get_tweet(doc):
     tweet['coordinates'] = doc['coordinates']
     tweet['date'] = time.strftime('%Y-%m-%dT%H:%M:%S+00:00', time.strptime(doc['created_at'],'%a %b %d %H:%M:%S +0000 %Y'))
     tweet['text'] = doc['text']
-    tweet["wordcloud"] = doc['text'].lower()
+    wcl = doc['text'].lower()
+    for c in config.cleaner:
+        wcl = wcl.replace(c, "")
     # tweet['language'] = doc['lang']
     tweet['source'] = doc.get('source', "").partition('>')[-1].rpartition('<')[0]
     tweet['user'] = {'id': doc['user']['id'], 'name': doc['user']['name'],
