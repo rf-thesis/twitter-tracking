@@ -1,0 +1,20 @@
+input {
+  file {
+    path => "/Users/5p4ck0/rf17/friends.csv"
+    start_position => "beginning"
+    sincedb_path => "/dev/null"
+  }
+}
+filter {
+  csv {
+     separator => ","
+    columns => ["ID","TYPE","SEQ","SEGMENT","ISEQ","GEOMETRY","REAL_TIMESTAMP","ACCURACY","USER_ID","UTM32","SLICE1M","SLICE2M","SLICE5M","SLICE15M","SLICE1H","SLICE2H","GRIDX","GRIDY","HIT","HIT2","SEG_DIST","SEG_DIST_COR","SEG_SEC","SEG_MOVE","SEG_SPEED","SEG_SPEED_MAX","SEG_SPEED_COR","stay","lowspeed","walk","run"]
+  }
+}
+output {
+   elasticsearch {
+     hosts => "http://localhost:9200"
+     index => "rf17-geo"
+  }
+stdout {}
+}
