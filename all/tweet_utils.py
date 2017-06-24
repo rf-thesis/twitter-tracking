@@ -337,6 +337,7 @@ def parse_tweet(doc):
     wcl = ' '.join(resultwords)
     for c in config.cleaner:
         wcl = wcl.replace(c, "")
+    wcl = re.sub(r'^https?:\/\/.*[\r\n]*', '', wcl, flags=re.MULTILINE)
     es_json["wordcloud"] = wcl
     if TweetLang == "en":
         _sentiment_analysis(doc)
