@@ -19,7 +19,8 @@ secret = config.xpackPwd
 
 def create_index(es, index_name, mapping):
     print('creating index {}...'.format(index_name))
-    es.indices.create(index_name, body={'mappings': mapping})
+    es.indices.create(index_name + "accounts", body={'mappings': mapping})
+    es.indices.create(index_name + "hashtags", body={'mappings': mapping})
 
 
 def check_index():
