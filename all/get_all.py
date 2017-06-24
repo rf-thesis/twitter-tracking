@@ -24,13 +24,12 @@ api = API(auth)
 twitter_loader.check_index()
 
 
-
 def send_to_es(doc):
-    twitter_loader.load_es_ros(doc)
+    twitter_loader.load_es(doc)
 
 
 def send_to_pg(doc):
-    twitter_loader.load_pg_ros(doc)
+    twitter_loader.load_pg(doc)
 
 
 class MyListener(StreamListener):
@@ -60,4 +59,4 @@ class MyListener(StreamListener):
         return True
 
 twitter_stream = Stream(auth, MyListener())
-twitter_stream.filter(track=config.ros)
+twitter_stream.filter(track=config.keywords)

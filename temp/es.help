@@ -1,2 +1,5 @@
 curl 'localhost:9200/_cat/indices?v'
-curl -XDELETE 'http://localhost:9200/rf17/'
+curl -XDELETE 'http://localhost:9200/rf17accounts/'
+curl -XDELETE 'http://localhost:9200/rf17hashtags/'
+forever restartall
+

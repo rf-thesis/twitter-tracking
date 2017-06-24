@@ -8,7 +8,7 @@ from tweet_utils import id_field, tweet_mapping
 from models import *
 import json
 
-index_name = 'rf17official'
+index_name = 'roskilde'
 doc_type = 'tweet'
 mapping = {doc_type: tweet_mapping}
 bulk_chunk_size = config.es_bulk_chunk_size
