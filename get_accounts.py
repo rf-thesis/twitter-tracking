@@ -12,10 +12,10 @@ import threading
 from tweet_utils import parse_tweet
 
 
-consumer_key = config.consumer_key
-consumer_secret = config.consumer_secret
-access_token = config.access_token
-access_secret = config.access_secret
+consumer_key = config.consumer_key2
+consumer_secret = config.consumer_secret2
+access_token = config.access_token2
+access_secret = config.access_secret2
 telegram_token = config.telegram_token
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
