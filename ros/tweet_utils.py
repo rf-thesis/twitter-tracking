@@ -332,12 +332,13 @@ def parse_tweet(doc):
     es_json["hashtags"] = list(map(lambda x: x['text'],doc['entities']['hashtags']))
 
     wcl = doc.get('text').lower()
+    wcl = re.sub(r'^https?:\/\/.*[\r\n]*', '', wcl, flags=re.MULTILINE)
+
     querywords = wcl.split()
     resultwords  = [word for word in querywords if word.lower() not in config.stops]
     wcl = ' '.join(resultwords)
     for c in config.cleaner:
         wcl = wcl.replace(c, "")
-    wcl = re.sub(r'^https?:\/\/.*[\r\n]*', '', wcl, flags=re.MULTILINE)
     es_json["wordcloud"] = wcl
     if TweetLang == "en":
         _sentiment_analysis(doc)
