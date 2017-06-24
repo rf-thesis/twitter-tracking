@@ -24,9 +24,8 @@ api = API(auth)
 twitter_loader.check_index()
 
 
-
 def send_to_es(doc):
-    twitter_loader.load_es(doc)
+    twitter_loader.load_accounts(doc)
 
 
 def send_to_pg(doc):

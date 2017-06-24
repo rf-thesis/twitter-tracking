@@ -1,2 +1,2 @@
-curl -XPUT http://51.15.67.234:9200/_template/georf15?pretty -d @geo15template.json
+curl -XPUT http://51.15.67.234:9200/_template/rf17?pretty -d @mapping.json
 curl -XPUT http://51.15.67.234:9200/_template/georf15?pretty -d @geo16template.json

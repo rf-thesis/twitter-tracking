@@ -40,13 +40,24 @@ def check_index():
         create_index(es, index_name, mapping)
 
 
-def load_es(tweet):
+def load_accounts(tweet):
     es = Elasticsearch(host=config.es_host,
                        port=config.es_port,
                        http_auth=(user, secret), request_timeout=45)
     tweetid = tweet[id_field]
     tweet.pop(id_field)
-    result = es.index(index=index_name, doc_type=doc_type,
+    result = es.index(index=index_name + "accounts", doc_type=doc_type,
+                      id=tweetid, body=json.dumps(tweet), request_timeout=30)
+    return result
+
+
+def load_hashtags(tweet):
+    es = Elasticsearch(host=config.es_host,
+                       port=config.es_port,
+                       http_auth=(user, secret), request_timeout=45)
+    tweetid = tweet[id_field]
+    tweet.pop(id_field)
+    result = es.index(index=index_name + "hashtags", doc_type=doc_type,
                       id=tweetid, body=json.dumps(tweet), request_timeout=30)
     return result
 

@@ -1,181 +1,191 @@
 {
-  "properties": {
-    "UserName": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword"
-        }
-      }
-    },
-    "UserScreenName": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword"
-        }
-      }
-    },
-    "TweetDate": {
-      "type": "date"
-    },
-    "OriginalTweetId": {
-      "type": "long"
-    },
-    "OriginalTweetDate": {
-      "type": "date"
-    },
-    "hashtags": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword"
-        }
-      }
-    },
-     "mentions": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword"
-        }
-      }
-    },
-    "Retweeted": {
-      "type": "boolean"
-    },
-    "coordinates": {
-      "properties": {
-        "coordinates": {
-          "type": "geo_point"
-        },
-        "type": {
-          "type": "text",
-          "index": "not_analyzed"
-        }
-      }
-    },
-    "UserLocation": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword"
-        }
-      }
-    },
-    "Source": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword"
-        }
-      }
-    },
-    "TweetLang": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword"
-        }
-      }
-    },
-    "id": {
-      "type": "long"
-    },
-    "Favorited": {
-      "type": "boolean"
-    },
-    "RetweetCount": {
-      "type": "long"
-    },
-    "UserCreatedDate": {
-      "type": "date"
-    },
-    "OriginalTweetUserScreenName": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword"
-        }
-      }
-    },
-    "OriginalTweetUserName": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword"
-        }
-      }
-    },
-    "OriginalTweetUserId": {
-      "type": "long"
-    },
-    "sentiments": {
-      "type": "text",
-      "fielddata": true
-    },
-    "UserFollowerCount": {
-      "type": "long"
-    },
-    "UserFavoritesCount": {
-      "type": "long"
-    },
-    "UserStatusesCount": {
-      "type": "long"
-    },
-    "UserUTCOffset": {
-      "type": "text",
-      "fielddata": true
-    },
-    "UserLang": {
-      "type": "text",
-      "fielddata": true
-    },
-    "Urls": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword"
-        }
-      }
-    },
-    "UserId": {
-      "type": "long"
-    },
-    "FavoriteCount": {
-      "type": "long"
-    },
-    "Text": {
-      "type": "text",
-      "fields": {
-        "all": {
-          "type": "keyword"
-        },
-        "raw": {
-          "type": "text",
-          "fielddata": true
-        }
-      }
-    },
-    "UserTimeZone": {
-      "type": "text",
-      "fielddata": true
-    },
-    "UserFriendsCount": {
-      "type": "long"
-    },
-    "wordcloud": {
-      "type": "text",
-      "fields": {
-        "all": {
-          "type": "keyword"
-        },
-        "raw": {
-          "type": "text",
-          "fielddata": true
+  "template": "rf17",
+  "version": 50001,
+  "settings": {
+    "index.refresh_interval": "5s"
+  },
+  "mappings": {
+    "_default_": 
+      {
+        "properties": {
+          "UserName": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "UserScreenName": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "TweetDate": {
+            "type": "date"
+          },
+          "OriginalTweetId": {
+            "type": "long"
+          },
+          "OriginalTweetDate": {
+            "type": "date"
+          },
+          "hashtags": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "mentions": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "Retweeted": {
+            "type": "boolean"
+          },
+          "coordinates": {
+            "properties": {
+              "coordinates": {
+                "type": "geo_point"
+              },
+              "type": {
+                "type": "text",
+                "index": "not_analyzed"
+              }
+            }
+          },
+          "UserLocation": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "Source": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "TweetLang": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "id": {
+            "type": "long"
+          },
+          "Favorited": {
+            "type": "boolean"
+          },
+          "RetweetCount": {
+            "type": "long"
+          },
+          "UserCreatedDate": {
+            "type": "date"
+          },
+          "OriginalTweetUserScreenName": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "OriginalTweetUserName": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "OriginalTweetUserId": {
+            "type": "long"
+          },
+          "sentiments": {
+            "type": "text",
+            "fielddata": true
+          },
+          "UserFollowerCount": {
+            "type": "long"
+          },
+          "UserFavoritesCount": {
+            "type": "long"
+          },
+          "UserStatusesCount": {
+            "type": "long"
+          },
+          "UserUTCOffset": {
+            "type": "text",
+            "fielddata": true
+          },
+          "UserLang": {
+            "type": "text",
+            "fielddata": true
+          },
+          "Urls": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "UserId": {
+            "type": "long"
+          },
+          "FavoriteCount": {
+            "type": "long"
+          },
+          "Text": {
+            "type": "text",
+            "fields": {
+              "all": {
+                "type": "keyword"
+              },
+              "raw": {
+                "type": "text",
+                "fielddata": true
+              }
+            }
+          },
+          "UserTimeZone": {
+            "type": "text",
+            "fielddata": true
+          },
+          "UserFriendsCount": {
+            "type": "long"
+          },
+          "wordcloud": {
+            "type": "text",
+            "fields": {
+              "all": {
+                "type": "keyword"
+              },
+              "raw": {
+                "type": "text",
+                "fielddata": true
+              }
+            }
+          }
         }
       }
     }
-
   }
 }
