@@ -21,6 +21,7 @@ api = API(auth)
 
 twitter_to_es.check_index()
 
+
 def send_to_es(line):
     doc = json.loads(line)
     if "limit" not in doc:
