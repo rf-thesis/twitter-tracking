@@ -12,10 +12,10 @@ import threading
 from tweet_utils import parse_tweet
 
 
-consumer_key = config.consumer_key1
-consumer_secret = config.consumer_secret1
-access_token = config.access_token1
-access_secret = config.access_secret1
+consumer_key = config.consumer_key
+consumer_secret = config.consumer_secret
+access_token = config.access_token
+access_secret = config.access_secret
 telegram_token = config.telegram_token
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
@@ -26,11 +26,11 @@ twitter_loader.check_index()
 
 
 def send_to_es(doc):
-    twitter_loader.load_es_ros(doc)
+    twitter_loader.load_es(doc)
 
 
 def send_to_pg(doc):
-    twitter_loader.load_pg_ros(doc)
+    twitter_loader.load_pg(doc)
 
 
 class MyListener(StreamListener):
